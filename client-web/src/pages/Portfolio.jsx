@@ -1,9 +1,6 @@
 import React from "react";
+import PageLayout from "../components/layout/PageLayout";
 
 export default function Portfolio() {
-  return (
-    <div>
-      <h1>portfolio</h1>
-    </div>
-  );
+  return <PageLayout></PageLayout>;
 }

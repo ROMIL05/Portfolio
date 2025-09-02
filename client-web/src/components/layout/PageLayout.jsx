@@ -1,11 +1,10 @@
 import React from "react";
 import Background from "./Background";
-import Navbar from "../navbar/Navbar";
 
-export default function PageLayout() {
+export default function PageLayout({ children }) {
   return (
     <Background>
-      <Navbar />
+      <main className="flex flex-col items-center pt-28">{children}</main>
     </Background>
   );
 }

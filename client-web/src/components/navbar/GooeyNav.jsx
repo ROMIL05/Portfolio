@@ -150,7 +150,8 @@ const GooeyNav = ({
             transition: color 0.3s ease;
           }
           .effect.text.active {
-            color: black;
+            color: #336699;
+            font-weight: 500;
           }
           .effect.filter {
             filter: blur(7px) contrast(100) blur(0);
@@ -294,7 +295,11 @@ const GooeyNav = ({
                   onClick={(e) => handleClick(e, index)}
                   href={item.href}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className="outline-none py-[0.6em] px-[1em] inline-block"
+                  className={`outline-none py-[0.6em] px-[1em] inline-block text-base font-semibold ${
+                    activeIndex === index
+                      ? "text-red-600 font-bold"
+                      : "text-white"
+                  }`}
                 >
                   {item.label}
                 </a>

@@ -40,6 +40,18 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
+      perspective: {
+        1500: "1500px",
+      },
+      keyframes: {
+        blink: {
+          "0%, 50%, 100%": { borderColor: "transparent" },
+          "25%, 75%": { borderColor: "currentColor" },
+        },
+      },
+      animation: {
+        blink: "blink 1s step-end infinite",
+      },
     },
   },
 

@@ -1,11 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import GooeyNav from "./GooeyNav";
 import NameText from "./NameText";
+import TrueFocus from "./TrueFocus";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const items = [
     { label: "Home", href: "#" },
@@ -17,11 +20,24 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1500px] bg-glass backdrop-blur-xl rounded-full py-3 px-4 md:px-6 flex items-center justify-between shadow-glass-dark z-50">
-      <div className="shrink-0">
-        <NameText />
+    <nav
+      className="fixed top-0 left-1/2 -translate-x-1/2 
+                w-[95%] max-w-[1500px] h-20 
+                bg-glass backdrop-blur-xl rounded-full 
+                px-4 md:px-6 flex items-center justify-between 
+                shadow-glass-dark z-50"
+    >
+      <div className="shrink-0 cursor-pointer" onClick={() => navigate("/")}>
+        <TrueFocus
+          sentence="Romil Patel"
+          manualMode={false}
+          blurAmount={3}
+          borderColor="#c084fc"
+          animationDuration={2}
+          pauseBetweenAnimations={1}
+        />
       </div>
-      <div className="hidden md:flex flex-grow justify-center desktop-nav">
+      <div className="hidden md:flex flex-grow justify-center p-0 my-auto desktop-nav">
         <GooeyNav
           items={items}
           particleCount={15}

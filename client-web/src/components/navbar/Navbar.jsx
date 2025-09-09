@@ -11,20 +11,26 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const items = [
-    { label: "Home", href: "#" },
-    { label: "About", href: "#" },
-    { label: "Skills", href: "#" },
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#" },
     { label: "Education", href: "#" },
     { label: "Contact", href: "#" },
   ];
+
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <nav
       className="fixed top-0 left-1/2 -translate-x-1/2 
                 w-[95%] max-w-[1500px] h-20 
                 bg-glass backdrop-blur-xl rounded-full 
-                px-4 md:px-6 flex items-center justify-between 
+                px-4 md:px-7 flex items-center justify-between 
                 shadow-glass-dark z-50"
     >
       <div className="shrink-0 cursor-pointer" onClick={() => navigate("/")}>
@@ -78,7 +84,13 @@ const Navbar = () => {
               <motion.a
                 key={idx}
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMenuOpen(false);
+                  if (item.label.toLowerCase() === "about") {
+                    handleScroll("about");
+                  }
+                }}
                 className="text-text-base font-poppins text-lg hover:text-primary transition"
                 whileHover={{ scale: 1.1 }}
               >

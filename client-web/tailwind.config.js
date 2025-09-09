@@ -48,9 +48,15 @@ export default {
           "0%, 50%, 100%": { borderColor: "transparent" },
           "25%, 75%": { borderColor: "currentColor" },
         },
+        gradient: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0% 50%" },
+        },
       },
       animation: {
         blink: "blink 1s step-end infinite",
+        gradient: "gradient 8s linear infinite",
       },
     },
   },

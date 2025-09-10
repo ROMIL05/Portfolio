@@ -87,7 +87,7 @@ function LaptopModel() {
           transform
           occlude
           distanceFactor={3}
-          position={[0.28, 2.4, 0.09]}
+          position={[0.1, 2.4, 0.09]}
           wrapperClass="laptop-screen"
           style={{ zIndex: 5 }}
         >
@@ -95,7 +95,7 @@ function LaptopModel() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="w-[900px] h-[520px] relative rounded-xl border-2 border-purple-300 shadow-[0_0_40px_rgba(128,0,255,0.3)] [backface-visibility:hidden] overflow-hidden select-none flex flex-col items-center justify-center"
+            className="w-[950px] h-[520px] relative rounded-xl border-2 border-purple-300 shadow-[0_0_40px_rgba(128,0,255,0.3)] [backface-visibility:hidden] overflow-hidden select-none flex flex-col items-center justify-center"
           >
             <div className="absolute inset-0 -z-10">
               <Prism
@@ -146,11 +146,12 @@ function LaptopModel() {
 
 export default function Laptop() {
   return (
-    <div className="w-full h-[400px] sm:h-[500px] md:h-[650px] lg:h-[550px] relative z-0 p-0">
+    <div className="w-full h-[400px] sm:h-[500px] md:h-[650px] lg:h-[550px] relative z-10 mr-20 sm:mr-0">
       <Canvas
         camera={{ position: [8, 5, 8], fov: 45 }}
         gl={{ antialias: true }}
         shadows
+        className="w-full"
       >
         <ambientLight intensity={0.6} />
         <directionalLight

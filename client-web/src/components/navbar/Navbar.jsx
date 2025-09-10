@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -5,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import GooeyNav from "./GooeyNav";
 import NameText from "../UI/NameText";
 import TrueFocus from "./TrueFocus";
+import { FloatingDock } from "../UI/Floating-dock";
+import { Github, Linkedin, Code, Mail } from "lucide-react";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,6 +21,29 @@ const Navbar = () => {
     { label: "Contact", href: "#contact" },
   ];
 
+  const links = [
+    {
+      title: "Github",
+      icon: <Github className="h-full w-full text-neutral-500" />,
+      href: "https://github.com/ROMIL05",
+    },
+    {
+      title: "Linkedin",
+      icon: <Linkedin className="h-full w-full text-neutral-500" />,
+      href: "https://linkedin.com/in/romil05",
+    },
+    {
+      title: "Leetcode",
+      icon: <Code className="h-full w-full text-neutral-500" />,
+      href: "https://leetcode.com/u/ROMIL05/",
+    },
+    {
+      title: "Mail ",
+      icon: <Mail className="h-full w-full text-neutral-500" />,
+      href: "mailto:patelromil.surajnagar@gmail.com",
+    },
+  ];
+
   const handleScroll = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -27,7 +53,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="fixed top-0 left-1/2 -translate-x-1/2 
+      className="fixed top-3 left-1/2 -translate-x-1/2 
                 w-[95%] max-w-[1500px] h-20 
                 bg-glass backdrop-blur-xl rounded-full 
                 px-4 md:px-7 flex items-center justify-between 
@@ -56,20 +82,26 @@ const Navbar = () => {
         />
       </div>
 
-      <motion.div
-        className="md:hidden cursor-pointer text-primary text-3xl ml-auto"
-        onClick={() => setMenuOpen(!menuOpen)}
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 0.9 }}
-      >
+      <div className="flex items-center gap-3 md:hidden">
         <motion.div
-          initial={{ rotate: 0 }}
-          animate={{ rotate: menuOpen ? 180 : 0 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="md:hidden cursor-pointer text-primary text-3xl ml-auto"
+          onClick={() => setMenuOpen(!menuOpen)}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
         >
-          {menuOpen ? <FiX /> : <FiMenu />}
+          <motion.div
+            initial={{ rotate: 0 }}
+            animate={{ rotate: menuOpen ? 180 : 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+          >
+            {menuOpen ? <FiX color="#9b5de5" /> : <FiMenu color="#9b5de5" />}
+          </motion.div>
         </motion.div>
-      </motion.div>
+
+        <div className="items-center justify-center h-auto">
+          <FloatingDock mobileClassName="" items={links} />
+        </div>
+      </div>
 
       <AnimatePresence>
         {menuOpen && (
@@ -87,9 +119,7 @@ const Navbar = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   setMenuOpen(false);
-                  if (item.label.toLowerCase() === "about") {
-                    handleScroll("about");
-                  }
+                  handleScroll(item.href.replace("#", ""));
                 }}
                 className="text-text-base font-poppins text-lg hover:text-primary transition"
                 whileHover={{ scale: 1.1 }}
@@ -100,6 +130,43 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <div className="hidden md:flex items-center justify-center h-auto">
+        <FloatingDock mobileClassName="translate-y-56" items={links} />
+      </div>
+
+      {/* <div className="flex gap-7 px-5">
+        <a
+          href="https://github.com/ROMIL05"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-purple-300 transition-transform transform hover:scale-110"
+        >
+          <Github size={22} />
+        </a>
+        <a
+          href="https://linkedin.com/in/romil05"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-purple-300 transition-transform transform hover:scale-110"
+        >
+          <Linkedin size={22} />
+        </a>
+        <a
+          href="https://leetcode.com/u/ROMIL05/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-purple-300 transition-transform transform hover:scale-110"
+        >
+          <Code size={22} />
+        </a>
+        <a
+          href="mailto:patelromil.surajnagar@gmail.com"
+          className="hover:text-purple-300 transition-transform transform hover:scale-110"
+        >
+          <Mail size={22} />
+        </a>
+      </div> */}
     </nav>
   );
 };

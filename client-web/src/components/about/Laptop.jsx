@@ -127,9 +127,9 @@ function LaptopModel() {
                   texts={["Full Stack Developer", "Programmer"]}
                   mainClassName="px-2 sm:px-3 bg-purple-500/30 text-purple-400 py-1 justify-center rounded-lg"
                   staggerFrom={"last"}
-                  initial={{ y: "100%" }}
-                  animate={{ y: "0%" }}
-                  exit={{ y: "-120%" }}
+                  initial={{ y: 30 }}
+                  animate={{ y: 0 }}
+                  exit={{ y: -40 }}
                   staggerDuration={0.025}
                   splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1"
                   transition={{ type: "spring", damping: 30, stiffness: 400 }}

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Laptop from "./Laptop";
 import GradientText from "../UI/GradientText";
+import { HatGlasses } from "lucide-react";
 
 export default function About() {
   const textVariants = {
@@ -17,7 +18,7 @@ export default function About() {
       id="about"
       className="pt-32 pb-10 container mx-auto flex flex-col lg:flex-row 
              items-center lg:items-start justify-center gap-10 sm:gap-12 md:gap-16 
-             px-10 sm:px-52 lg:px-28"
+             px-5 sm:px-52 lg:px-28"
     >
       <motion.div
         className="flex-[2] flex flex-col justify-center w-full max-w-3xl"
@@ -30,8 +31,18 @@ export default function About() {
           animationSpeed={5}
           showBorder={false}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold mb-5 text-center lg:text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-bold mb-5 text-center lg:text-left flex items-center gap-3">
             Full Stack Developer
+            <svg className="w-10 h-10" viewBox="2 -1 24 24">
+              <defs>
+                <linearGradient id="fireGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#FFFFFF" />
+                  <stop offset="50%" stopColor="#DDDDDD" />
+                  <stop offset="100%" stopColor="#888888" />
+                </linearGradient>
+              </defs>
+              <HatGlasses stroke="none" fill="url(#fireGradient)" />
+            </svg>
           </h1>
         </GradientText>
 

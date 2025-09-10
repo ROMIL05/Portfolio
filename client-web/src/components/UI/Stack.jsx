@@ -89,7 +89,7 @@ export default function Stack({
 
         return (
           <CardRotate
-            key={card.id}
+            key={index}
             onSendToBack={() => sendToBack(card.id)}
             sensitivity={sensitivity}
           >

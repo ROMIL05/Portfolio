@@ -100,14 +100,14 @@ const Footer = () => {
 
         <div className="flex flex-col justify-center items-center text-gray-300 text-sm my-auto">
           <p>© {year} Romil Patel. All rights reserved.</p>
-          <p className="mt-2 md:mt-0 my-auto">
+          <div className="mt-2 md:mt-0 my-auto">
             Created with ❤️ by{" "}
             <Cover
               className={`text-xl text-center font-bold tracking-wide bg-transparent cursor-default my-auto`}
             >
               Romil.
             </Cover>
-          </p>
+          </div>
         </div>
       </div>
     </footer>

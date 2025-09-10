@@ -44,7 +44,7 @@ export const StickyScroll = ({ content }) => {
 
       {content.map((item, index) => (
         <motion.div
-          key={item.title + index}
+          key={index}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.3 }}

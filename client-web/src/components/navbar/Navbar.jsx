@@ -15,7 +15,7 @@ const Navbar = () => {
     { label: "Skills", href: "#skills" },
     { label: "Projects", href: "#projects" },
     { label: "Education", href: "#education" },
-    { label: "Contact", href: "#" },
+    { label: "Contact", href: "#contact" },
   ];
 
   const handleScroll = (id) => {

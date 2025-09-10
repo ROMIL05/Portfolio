@@ -150,7 +150,7 @@ const GooeyNav = ({
             transition: color 0.3s ease;
           }
           .effect.text.active {
-            color: #336699;
+            color: #8B5CF6;
             font-weight: 500;
           }
           .effect.filter {
@@ -297,7 +297,7 @@ const GooeyNav = ({
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   className={`outline-none py-[0.6em] px-[1em] inline-block text-base font-semibold ${
                     activeIndex === index
-                      ? "text-red-600 font-bold"
+                      ? "text-purple-500 font-bold"
                       : "text-white"
                   }`}
                 >

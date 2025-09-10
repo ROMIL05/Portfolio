@@ -8,7 +8,7 @@ import skillscript from "../../public/images/projects/skillscript.png";
 export default function Projects() {
   const projects = [
     {
-      title: "PRIME MINISTER SPECIAL SCHOlLARSHIP SCHEME",
+      title: "PRIME MINISTER SPECIAL SCHOLARSHIP SCHEME",
       image: pmsss,
       tags: ["Bootstrap", "PHP", "Node Js", "Express Js", "MongoDB"],
       dates: "September 2024 – December 2024",

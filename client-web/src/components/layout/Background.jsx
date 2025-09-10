@@ -3,8 +3,8 @@ import Galaxy from "./Galaxy";
 const Background = ({ children }) => {
   return (
     <div className="w-full min-h-screen relative overflow-hidden text-text-base">
-      <div className="absolute inset-0 bg-gradient-radial from-bg-dark-alt to-bg-dark -z-20" />
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 h-full bg-gradient-radial from-bg-dark-alt to-bg-dark -z-20" />
+      <div className="absolute inset-0 h-full -z-10">
         <Galaxy
           focal={[0.5, 0.5]}
           rotation={[0.7071, 0.7071]}
@@ -23,7 +23,7 @@ const Background = ({ children }) => {
           transparent={true}
         />
       </div>
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 h-full">{children}</div>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import GooeyNav from "./GooeyNav";
-import NameText from "./NameText";
+import NameText from "../UI/NameText";
 import TrueFocus from "./TrueFocus";
 
 const Navbar = () => {

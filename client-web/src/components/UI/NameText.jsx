@@ -3,15 +3,15 @@ import FuzzyText from "./FuzzyText";
 const NameText = () => {
   return (
     <FuzzyText
-      baseIntensity={0.08}
-      hoverIntensity={0.4}
+      baseIntensity={0.04}
+      hoverIntensity={0.15}
       enableHover={true}
-      fontSize="1.5rem"
-      fontWeight={700}
+      fontSize="1.7rem"
+      fontWeight={800}
       color="#fff"
       fontFamily="Poppins, sans-serif"
     >
-      {"<Romil / Patel>"}
+      {"My Portfolio"}
     </FuzzyText>
   );
 };

@@ -1,11 +1,21 @@
-import React from "react";
+import { useState } from "react";
 import { Github, Linkedin, Code, Mail } from "lucide-react";
 import Plasma from "../layout/Plasma";
 import { Cover } from "../UI/Cover";
 import NameText from "../UI/NameText";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const [hovered, setHovered] = useState(null);
+
+  const links = [
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "Projects" },
+    { href: "#education", label: "Education" },
+    { href: "#contact", label: "Contact" },
+  ];
 
   return (
     <footer className="relative overflow-hidden bg-transparent">
@@ -29,37 +39,29 @@ const Footer = () => {
             </p>
           </div>
 
-          <nav className="flex flex-wrap justify-center gap-10 text-base font-medium">
-            <a
-              href="#about"
-              className="hover:text-purple-300 transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#skills"
-              className="hover:text-purple-300 transition-colors"
-            >
-              Skills
-            </a>
-            <a
-              href="#projects"
-              className="hover:text-purple-300 transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="#education"
-              className="hover:text-purple-300 transition-colors"
-            >
-              Education
-            </a>
-            <a
-              href="#contact"
-              className="hover:text-purple-300 transition-colors"
-            >
-              Contact
-            </a>
+          <nav className="flex flex-wrap justify-center gap-3 text-base font-medium relative">
+            {links.map((link) => (
+              <div
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => setHovered(link.href)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                {hovered === link.href && (
+                  <motion.div
+                    layoutId="nav-highlight"
+                    className="absolute inset-0 rounded-full py-5 text-center my-auto bg-purple-500/20"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                <a
+                  href={link.href}
+                  className="relative z-10 p-4 rounded-md hover:text-purple-300 transition-colors"
+                >
+                  {link.label}
+                </a>
+              </div>
+            ))}
           </nav>
 
           <div className="flex gap-5">
@@ -98,9 +100,8 @@ const Footer = () => {
 
         <div className="border-t border-gray-600 my-8"></div>
 
-        <div className="flex flex-col justify-center items-center text-gray-300 text-sm my-auto">
-          <p>© {year} Romil Patel. All rights reserved.</p>
-          <div className="mt-2 md:mt-0 my-auto">
+        <div className="flex flex-col gap-y-2 justify-center items-center text-gray-300 text-sm my-auto">
+          <div className="md:mt-0 my-auto">
             Created with ❤️ by{" "}
             <Cover
               className={`text-xl text-center font-bold tracking-wide bg-transparent cursor-default my-auto`}
@@ -108,6 +109,7 @@ const Footer = () => {
               Romil.
             </Cover>
           </div>
+          <p>© {year} Romil Patel. All rights reserved.</p>
         </div>
       </div>
     </footer>

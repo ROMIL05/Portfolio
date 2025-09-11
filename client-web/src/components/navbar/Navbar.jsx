@@ -134,39 +134,6 @@ const Navbar = () => {
       <div className="hidden md:flex items-center justify-center h-auto">
         <FloatingDock mobileClassName="translate-y-56" items={links} />
       </div>
-
-      {/* <div className="flex gap-7 px-5">
-        <a
-          href="https://github.com/ROMIL05"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-purple-300 transition-transform transform hover:scale-110"
-        >
-          <Github size={22} />
-        </a>
-        <a
-          href="https://linkedin.com/in/romil05"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-purple-300 transition-transform transform hover:scale-110"
-        >
-          <Linkedin size={22} />
-        </a>
-        <a
-          href="https://leetcode.com/u/ROMIL05/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-purple-300 transition-transform transform hover:scale-110"
-        >
-          <Code size={22} />
-        </a>
-        <a
-          href="mailto:patelromil.surajnagar@gmail.com"
-          className="hover:text-purple-300 transition-transform transform hover:scale-110"
-        >
-          <Mail size={22} />
-        </a>
-      </div> */}
     </nav>
   );
 };

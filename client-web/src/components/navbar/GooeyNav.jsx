@@ -295,7 +295,7 @@ const GooeyNav = ({
                   onClick={(e) => handleClick(e, index)}
                   href={item.href}
                   onKeyDown={(e) => handleKeyDown(e, index)}
-                  className={`outline-none py-[0.6em] px-[1em] inline-block text-base font-semibold ${
+                  className={`outline-none py-[0.6em] px-[1em] inline-block text-base font-semibold hover:text-purple-500 ${
                     activeIndex === index
                       ? "text-purple-500 font-bold"
                       : "text-white"

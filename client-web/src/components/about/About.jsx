@@ -14,11 +14,11 @@ export default function About() {
   };
 
   return (
-    <div
+    <section
       id="about"
       className="pt-32 pb-10 container mx-auto flex flex-col lg:flex-row 
              items-center lg:items-start justify-center gap-10 sm:gap-12 md:gap-16 
-             px-5 sm:px-52 lg:px-28"
+             px-5 sm:px-10 lg:px-28"
     >
       <motion.div
         className="flex-[2] flex flex-col justify-center w-full max-w-3xl"
@@ -88,6 +88,6 @@ export default function About() {
       <div className="flex-[3] flex justify-center w-full lg:relative mt-8 lg:mt-0">
         <Laptop />
       </div>
-    </div>
+    </section>
   );
 }

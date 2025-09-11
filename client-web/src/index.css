@@ -4,6 +4,14 @@
 
 @layer tailwind-base {
   @tailwind base;
+
+  ::selection {
+    @apply bg-purple-600 text-white;
+  }
+
+  *::selection {
+    @apply bg-purple-600 text-white;
+  }
 }
 
 @layer tailwind-utilities {
@@ -23,6 +31,14 @@
 
 body {
   font-family: "Segoe UI";
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  color: #fff;
 }
 
 ::-webkit-scrollbar {

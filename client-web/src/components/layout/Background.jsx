@@ -9,11 +9,11 @@ const Background = ({ children }) => {
           focal={[0.5, 0.5]}
           rotation={[0.7071, 0.7071]}
           starSpeed={0.3}
-          density={1}
+          density={5}
           hueShift={0}
           speed={0.8}
           mouseInteraction={true}
-          glowIntensity={0.15}
+          glowIntensity={0.1}
           saturation={0.0}
           mouseRepulsion={true}
           repulsionStrength={0.4}
@@ -23,7 +23,7 @@ const Background = ({ children }) => {
           transparent={true}
         />
       </div>
-      <div className="relative z-10 h-full">{children}</div>
+      <div className="relative z-10">{children}</div>
     </div>
   );
 };

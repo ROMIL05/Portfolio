@@ -13,6 +13,7 @@ function LaptopModel() {
   const lidRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [index, setIndex] = useState(0);
+  const [overshoot, setOvershoot] = useState(true);
   const roles = ["Full Stack Developer", "Programmer"];
 
   useEffect(() => {
@@ -23,16 +24,29 @@ function LaptopModel() {
     return () => clearInterval(interval);
   }, []);
 
+  const overshootRef = useRef(true);
+
   useFrame((state, delta) => {
-    if (lidRef.current) {
-      const targetRotation = isOpen ? -0.05 : Math.PI / 2;
-      const speed = 0.5;
-      const t = delta / speed;
-      lidRef.current.rotation.x = THREE.MathUtils.lerp(
-        lidRef.current.rotation.x,
-        targetRotation,
-        t
-      );
+    if (!lidRef.current) return;
+    const openAngle = 0.05;
+    let target = isOpen ? openAngle : Math.PI / 2;
+
+    if (isOpen && overshootRef.current) {
+      target = -0.08;
+    }
+
+    lidRef.current.rotation.x = THREE.MathUtils.damp(
+      lidRef.current.rotation.x,
+      target,
+      0.7,
+      delta
+    );
+
+    if (
+      overshootRef.current &&
+      Math.abs(lidRef.current.rotation.x - -0.08) < 0.005
+    ) {
+      overshootRef.current = false;
     }
   });
 
@@ -87,15 +101,15 @@ function LaptopModel() {
           transform
           occlude
           distanceFactor={3}
-          position={[0.1, 2.4, 0.09]}
+          position={[-0.1, 2.4, 0.09]}
           wrapperClass="laptop-screen"
           style={{ zIndex: 5 }}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="w-[950px] h-[520px] relative rounded-xl border-2 border-purple-300 shadow-[0_0_40px_rgba(128,0,255,0.3)] [backface-visibility:hidden] overflow-hidden select-none flex flex-col items-center justify-center"
+            transition={{ duration: 1, ease: "easeOut", delay: 0 }}
+            className="w-[900px] h-[550px] relative rounded-xl border-2 border-purple-300 shadow-[0_0_40px_rgba(128,0,255,0.3)] [backface-visibility:hidden] overflow-hidden select-none flex flex-col items-center justify-center"
           >
             <div className="absolute inset-0 -z-10">
               <Prism
@@ -114,14 +128,14 @@ function LaptopModel() {
               <img
                 src={photo}
                 alt="Romil Patel"
-                className="w-52 h-52 rounded-full border-4 border-purple-400 shadow-lg mb-5"
+                className="w-56 h-56 rounded-full border-4 border-purple-400 shadow-lg mb-7"
               />
 
-              <h1 className="text-4xl font-bold text-white mb-7">
+              <h1 className="text-5xl font-bold text-white mb-10">
                 Hi, I am Romil Patel
               </h1>
 
-              <div className="flex items-center gap-3 text-2xl sm:text-3xl font-semibold">
+              <div className="flex items-center gap-3 text-3xl sm:text-3xl font-semibold">
                 <span className="text-white">I am a</span>
                 <RotatingText
                   texts={["Full Stack Developer", "Programmer"]}

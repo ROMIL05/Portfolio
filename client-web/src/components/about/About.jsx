@@ -70,7 +70,8 @@ export default function About() {
 
         <div className="mt-7 flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
           <a
-            href="#resume"
+            href="https://drive.google.com/file/d/1geQbVFWFzal_citvf51KrrxnaD4SXFir/view?usp=sharing"
+            target="_blank"
             className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 text-center"
           >
             Check Resume

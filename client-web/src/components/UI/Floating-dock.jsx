@@ -39,6 +39,7 @@ const FloatingDockMobile = ({ items, className }) => {
               >
                 <a
                   href={item.href}
+                  target="_blank"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-900"
                 >
                   <div className="h-4 w-4">{item.icon}</div>
@@ -76,6 +77,7 @@ function IconContainer({ title, icon, href }) {
   return (
     <a
       href={href}
+      target="_blank"
       className="relative flex flex-col items-center w-12"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

@@ -98,7 +98,7 @@ function IconContainer({ title, icon, href }) {
         className="absolute top-full mt-1 text-xs font-medium text-purple-900 dark:text-purple-300 whitespace-nowrap"
         initial={{ opacity: 0, y: 4 }}
         animate={hovered ? { opacity: 1, y: 0 } : { opacity: 0, y: 4 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0 }}
       >
         {title}
       </motion.span>

@@ -3,7 +3,7 @@ import FuzzyText from "./FuzzyText";
 const NameText = () => {
   return (
     <FuzzyText
-      baseIntensity={0.04}
+      baseIntensity={0.075}
       hoverIntensity={0.15}
       enableHover={true}
       fontSize="1.7rem"

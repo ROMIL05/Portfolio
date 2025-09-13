@@ -1,16 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
-// import { loginLoader, verifyLoader } from './loaders/verify.loader';
 import ErrorElement from "./components/ErrorElement";
 import Portfolio from "./pages/Portfolio";
 
-const routes = createBrowserRouter([
+const routes = createBrowserRouter(
+  [
+    {
+      path: "",
+      children: [{ path: "/", element: <Portfolio /> }],
+    },
+    {
+      path: "*",
+      element: <ErrorElement />,
+    },
+  ],
   {
-    path: "",
-    children: [{ path: "/", element: <Portfolio /> }],
-  },
-  {
-    path: "*",
-    element: <ErrorElement />,
-  },
-]);
+    basename: "/Portfolio/",
+  }
+);
 export default routes;

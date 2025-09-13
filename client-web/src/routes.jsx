@@ -14,7 +14,7 @@ const routes = createBrowserRouter(
     },
   ],
   {
-    basename: "/Portfolio/",
+    basename: "/",
   }
 );
 export default routes;

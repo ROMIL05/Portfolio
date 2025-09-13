@@ -92,7 +92,7 @@ export default function Skills() {
 
               <Stack
                 randomRotation={true}
-                sensitivity={100}
+                sensitivity={300}
                 sendToBackOnClick={true}
                 cardDimensions={{ width: 200, height: 200 }}
                 cardsData={cardsData}
